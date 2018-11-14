@@ -57,34 +57,138 @@
                             <div class="double">
                                 <div class="half">
                                     <label for="first">First name</label>
-                                    <input type="text" id="first" placeholder="Enter first name" name='fname'>
+                                    <input type="text" id="first" required placeholder="Enter first name" name='fname'>
                                 </div>
                                 <div class="half">
                                     <label for="second">Last name</label>
-                                    <input type="text" id="second" placeholder="Enter last name with initials if any" name="lname">
+                                    <input type="text" id="second" required placeholder="Enter last name with initials if any"
+                                        name="lname">
                                 </div>
                             </div>
                             <div class="double">
                                 <div class="half">
                                     <label for="first">Email address</label>
-                                    <input type="text" id="first" placeholder="Enter your email address" name="email" required>
+                                    <input type="text" id="first" required placeholder="Enter your email address" name="email"
+                                        required>
                                 </div>
                                 <div class="half">
-                                        <label for="second">Mobile number</label>
-                                        <input type="text" id="second" placeholder="Enter your 10 digit mobile no." name="mobile">
+                                    <label for="second">Mobile number</label>
+                                    <input type="text" id="second" required placeholder="Enter your 10 digit mobile no."
+                                        name="mobile">
                                 </div>
                             </div>
                             <div class="double">
                                 <div class="half">
-                                    <label for="first">Address</label>
-                                    <input type="text" id="first" placeholder="Enter your address" name="address">
+                                    <label for="first">Postal Address Line 1</label>
+                                    <input type="text" id="first" placeholder="Enter your postal address" name="address">
                                 </div>
                                 <div class="half">
-                                        <label for="second">About</label>
-                                        <input type="text" id="second" placeholder="Describe yourself...." name="about">
+                                    <label for="second">Postal Address Line 2</label>
+                                    <input type="text" id="second" placeholder="Enter your postal address" name="address">
                                 </div>
                             </div>
-                            <button type="submit" class="button button__primary" name='submit'>Submit</button>
+                            <h2>About</h2>
+                            <div>
+                                <textarea placeholder="About yourself.." id='textarea'></textarea>
+                            </div>
+                            <h2 style="margin-bottom: 0.1%;">Education</h2>
+                            <h6 style="margin-bottom: 2%;"><em>All fields are not required</em></h6>
+
+
+
+
+
+                            <div class="double">
+                                <div class="half">
+                                    <label for="first">This is half size form. one in a row</label>
+                                    <input type="text" id="first" placeholder="This is half size form" name="">
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="double">
+                                <div class="half">
+                                    <label for="first">This is half size form. two in a row</label>
+                                    <input type="text" id="first" placeholder="This is half size form" name="">
+                                </div>
+                                <div class="half">
+                                    <label for="first">This is half size form. two in a row</label>
+                                    <input type="text" id="first" placeholder="This is half size form" name="">
+                                </div>
+                            </div>
+
+
+
+                            <label>Label</label>
+                            <input type='text' placeholder="Default, full-width field">
+
+
+
+
+                            <select>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+
+
+
+
+                            <div class="double">
+                                <div class="half">
+                                    <select>
+                                        <option value="1">Option 1</option>
+                                        <option value="2">Option 2</option>
+                                        <option value="3">Option 3</option>
+                                      </select>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="double">
+                                <p class="half">
+                                  <input name="radiovalue" type="radio" id="radio1" />
+                                  <label for="radio1">Radio option 1</label>
+                                </p>
+                                <p class="half">
+                                  <input name="radiovalue" type="radio" id="radio2" />
+                                  <label for="radio2">Radio option 2</label>
+                                </p>
+                              </div>
+
+
+
+
+                              <p class="row">
+                                <input type="checkbox" id="check" />
+                                <label for="check">This is a standard checkbox</label>
+                                <input type="checkbox" id="check" />
+                                <label for="check">This is a standard checkbox</label>
+                                <input type="checkbox" id="check" />
+                                <label for="check">This is a standard checkbox</label>
+                              </p>
+
+                              <p class="row">
+                                <input type="checkbox" id="check" />
+                                <label for="check">This is a standard checkbox</label>
+                                <input type="checkbox" id="check" />
+                                <label for="check">This is a standard checkbox</label>
+                                <input type="checkbox" id="check" />
+                                <label for="check">This is a standard checkbox</label>
+                              </p>
+
+
+
+
+
+                            <div class="double">
+                                <button type="submit" class="button button__primary" name='submit'>Submit</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -93,4 +197,5 @@
     </div>
     <script src='js/app.min.js'></script>
 </body>
+
 </html>
