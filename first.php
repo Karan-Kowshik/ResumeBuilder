@@ -13,8 +13,17 @@
         $email=$_POST['email'];
         $mobile=$_POST['mobile'];
 
-        $address=$_POST['address'];
+        $address1=$_POST['address1'];
+        $address2=$_POST['address2'];
         $about=$_POST['about'];
+        $high_school=$_POST['high_school'];
+        $uni_ug=$_POST['uni_ug'];
+        $uni_pg=$_POST['uni_pg'];
+        $interns=$_POST['interns'];
+        $skills=$_POST['skills'];
+        $languages=$_POST['languages'];
+        $achievements=$_POST['achievements'];
+        $hobbies=$_POST['hobbies'];
         echo 'Ok! You are now a part of ResumeBuilder!!!';
         
         //check if email is entered or not, if yes then insert data in to user table
@@ -40,8 +49,9 @@
                         echo "user id is: " . $row["user_id"]. "<br>". $uniqueid;
 
                         //populating table
-                        $query4 = "INSERT into info(address,about,u_id) values ('$address','$about','$uniqueid')";
-                        $result4 = mysqli_query($conn,$query4);
+                        $query4 = "INSERT into info(address1,address2,about,high_school,uni_ug,uni_pg,interns,skills,languages,achievements,hobbies,u_id) values ('$address1','$address2','$about','$high_school','$uni_ug','$uni_pg','$interns','$skills','$languages','$achievements','$hobbies','$uniqueid')";
+                      // $query4 = "INSERT into info(address1,about,u_id) values ('$address1','$about','$uniqueid')";
+                       $result4 = mysqli_query($conn,$query4);
                     }
                 } 
                 else {
