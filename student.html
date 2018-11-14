@@ -52,25 +52,39 @@
             <div class="page__inner">
                 <div class="page__main">
                     <div class="container">
-                        <form method="POST" action="#">
+                        <form method="POST" action="first.php">
                             <h2>Personal details</h2>
                             <div class="double">
                                 <div class="half">
                                     <label for="first">First name</label>
-                                    <input type="text" id="first" placeholder="Enter first name">
+                                    <input type="text" id="first" placeholder="Enter first name" name='fname'>
                                 </div>
                                 <div class="half">
                                     <label for="second">Last name</label>
-                                    <input type="text" id="second" placeholder="Enter last name with initials if any">
+                                    <input type="text" id="second" placeholder="Enter last name with initials if any" name="lname">
                                 </div>
                             </div>
                             <div class="double">
                                 <div class="half">
                                     <label for="first">Email address</label>
-                                    <input type="text" id="first" placeholder="Enter your email address">
+                                    <input type="text" id="first" placeholder="Enter your email address" name="email" required>
+                                </div>
+                                <div class="half">
+                                        <label for="second">Mobile number</label>
+                                        <input type="text" id="second" placeholder="Enter your 10 digit mobile no." name="mobile">
                                 </div>
                             </div>
-                            <button type="submit" class="button button__primary">Submit</button>
+                            <div class="double">
+                                <div class="half">
+                                    <label for="first">Address</label>
+                                    <input type="text" id="first" placeholder="Enter your address" name="address">
+                                </div>
+                                <div class="half">
+                                        <label for="second">About</label>
+                                        <input type="text" id="second" placeholder="Describe yourself...." name="about">
+                                </div>
+                            </div>
+                            <button type="submit" class="button button__primary" name='submit'>Submit</button>
                         </form>
                     </div>
                 </div>
