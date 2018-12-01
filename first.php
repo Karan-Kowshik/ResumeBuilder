@@ -62,6 +62,11 @@
     }
     else{
          echo "damn!";
-    }      
-        
+    }
 ?>
+ 
+ <!DOCTYPE html>
+    <html><body>     
+        <a href="studentresume.html" class="button button__accent">submit</a>
+        </body>
+    </html>
