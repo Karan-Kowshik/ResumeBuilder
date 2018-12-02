@@ -138,10 +138,9 @@
 				<p class="cta__sub cta__sub--center">Choose a template and start building you resume or search for your existing
 					resume using your unique ID!</p>
 				<a href="template.html" class="button button__accent">Choose a template</a>
-				<form>
-					<input type="text" style="width: 50%; margin-left: auto; margin-right: auto;" placeholder="Enter Unique ID here. eg: 1a19b23c-e1a3-11e8-8f40-54e1add87be4" />
-					<a href="studentresume.php" class="button button__accent">Search Student</a>
-					<a href="professionalresume.php" class="button button__accent">Search Professional</a>
+				<form method="POST" action="search.php">
+					<input type="text" style="width: 50%; margin-left: auto; margin-right: auto;" placeholder="Enter Unique ID here. eg: 1a19b23c-e1a3-11e8-8f40-54e1add87be4" name='uid' />
+					<button class="button button__accent" name='search'>Search</button>
 				</form>
 			</div>
 		</div>

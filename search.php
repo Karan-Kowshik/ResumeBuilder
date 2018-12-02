@@ -1,3 +1,32 @@
+<?php
+    session_start();
+    $dbhost = "localhost"; 
+    $dbuser = "root";
+    $dbpass = "";
+    $dbname = "resume";
+    $conn = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
+    if(mysqli_connect_errno()){
+        die("Database connection failed ".mysqli_connect_error()."(".mysqli_connect_errno().")");
+    }
+    if (isset($_POST['search']) && !empty($_POST['uid']))
+    {
+        $uid=$_POST['uid'];
+        $query="SELECT user_id,fname,lname from user where user_id='$uid'";
+        $result=mysqli_query($conn,$query);
+        if(mysqli_num_rows($result)==1)
+        {
+            while($row=mysqli_fetch_assoc($result))
+            {
+                $uniqueid = $row["user_id"];
+                $fname=$row["fname"];
+                $lname=$row["lname"];
+                $_SESSION['userid']=$uniqueid;
+            }
+        }
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -20,7 +49,7 @@
                 <nav class="navbar__menu">
                     <ul>
                         <li><a href="index.html#getstarted">Search resume</a></li>
-                        
+                        <li><a href="template.html">Choose template</a></li>
                     </ul>
                 </nav>
                 <div class="navbar__menu-mob"><a href="" id='toggle'><svg role="img" xmlns="http://www.w3.org/2000/svg"
@@ -38,9 +67,8 @@
             <div class="container">
                 <div class="page__header__content">
                     <div class="page__header__content__inner" id='navConverter'>
-                        <h1 class="page__header__title">Choose a template</h1>
-                        <p class="page__header__text">Choose from either of the templates and get started with your
-                            resume.</p>
+                        <h1 class="page__header__title">Successful</h1>
+                        <p class="page__header__text">You are one step away from viewing your Resume!</p>
                     </div>
                 </div>
             </div>
@@ -52,34 +80,20 @@
             <div class="page__inner">
                 <div class="page__main">
                     <div class="container">
-                        <div class="steps__inner">
-                            <div class="step">
-                                <div class="step__media">
-                                    <img src="./images/undraw_designer.svg" class="step__image">
-                                </div>
-                                <h4>Students</h4>
-                                <p class="step__text">If you're a student of any kind and you're looking to build a
-                                    resume but have no prior
-                                    experience, we've got you covered.</p>
-                                <a href='student.html' class="button">Continue</a>
-                            </div>
-                            <div class="step">
-                                <div class="step__media">
-                                    <img src="./images/undraw_responsive.svg" class="step__image">
-                                </div>
-                                <h4>Professionals</h4>
-                                <p class="step__text">Already a well established pro and looking to up your CV
-                                    presentation? &nbsp; We've got you
-                                    covered!</p><br>
-                                <a href='professional.html' class="button">Continue</a>
-                            </div>
-                        </div>
+                        <h4><?php echo $fname ."\r". $lname; ?> you are a part of ResumeBuilder! Click on View Resume to see your Resume.</h4>
+                        <a href="resume.php" class="button button__accent" style="margin-top: 50px;" name="view">View Resume</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script src='js/app.min.js'></script>
+    <script>
+    history.pushstate(null, null, location.href);
+    window.onpopstate function()
+    {
+        history.go(1);
+    };
+    </script>
 </body>
-
 </html>
