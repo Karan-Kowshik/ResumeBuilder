@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta class="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Resume Builder - Professional looking resume in minutes</title>
+    <link rel='stylesheet' href='css/style.css' />
+</head>
+
+<body>
+    <!-- navbar -->
+    <div class="navbar navbar--extended">
+        <nav class="nav__mobile"></nav>
+        <div class="container">
+            <div class="navbar__inner">
+                <a href="index.html" class="navbar__logo">
+                    <img src="./images/logo.png" width="30px;">
+                </a>
+                <nav class="navbar__menu">
+                    <ul>
+                        <li><a href="index.html#getstarted">Search resume</a></li>
+                        <li><a href="template.html">Choose template</a></li>
+                    </ul>
+                </nav>
+                <div class="navbar__menu-mob"><a href="" id='toggle'><svg role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512">
+                            <path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+                                class=""></path>
+                        </svg></a></div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero unit -->
+    <div class="hero page__header">
+        <div class="hero__overlay"></div>
+        <div class="page__header__inner">
+            <div class="container">
+                <div class="page__header__content">
+                    <div class="page__header__content__inner" id='navConverter'>
+                        <h1 class="page__header__title">Fill out the details</h1>
+                        <p class="page__header__text">Fill out all the details that go into the resume, leave blank if
+                            necessary.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page content -->
+    <div class="page">
+        <div class="container">
+            <div class="page__inner">
+                <div class="page__main">
+                    <div class="container">
+                        <form method="POST" action="first.php">
+                            <h2>Personal details</h2>
+                            <div class="double">
+                                <div class="half">
+                                    <label for="first">First name</label>
+                                    <input type="text" id="first" required placeholder="Enter first name" name='fname'>
+                                </div>
+                                <div class="half">
+                                    <label for="second">Last name</label>
+                                    <input type="text" id="second" required placeholder="Enter last name with initials if any"
+                                        name="lname">
+                                </div>
+                            </div>
+                            <div class="double">
+                                <div class="half">
+                                    <label for="first">Email address</label>
+                                    <input type="email" id="first" required placeholder="Enter your email address" name="email"
+                                        required>
+                                </div>
+                                <div class="half">
+                                    <label for="second">Mobile number</label>
+                                    <input type="text" id="second" required placeholder="Enter your 10 digit mobile no."
+                                        name="mobile">
+                                </div>
+                            </div>
+                            <div class="double">
+                                <div class="half">
+                                    <label for="first">Postal Address</label>
+                                    <input type="text" id="first" placeholder="Enter your postal address" name="address1">
+                                </div>
+                            </div>
+                            <h2>Objective</h2>
+                            <div>
+                                <textarea placeholder="Your objective with the company.." id='textarea' name="objective"></textarea>
+                            </div>
+                            
+                            <h2 style="margin-bottom: 0.1%;">Education</h2>
+                            <h6 style="margin-bottom: 2%;"><em>All fields are not required</em></h6>
+                            <div class="double">
+                                <div class="half">
+                                    <label for="first">Undergraduation</label>
+                                    <input type="text" id="first" placeholder="Enter your undergraduation information" name="uni_ug">
+                                </div>
+                            </div>
+                            <div class="double">
+                                <div class="half">
+                                    <label for="first">Postgraduation</label>
+                                    <input type="text" id="first" placeholder="Enter your postgraduation information" name="uni_pg">
+                                </div>
+                            </div>
+                            <h2>Internships and Projects</h2>
+                            <div>
+                                <textarea placeholder="Mention about internships and projects you have worked on" id='textarea' name="interns"></textarea>
+                            </div>
+                            <h2>Work experience</h2>
+                            <div>
+                                <textarea placeholder="Mention about the work experiences you have had" id='textarea' name="interns"></textarea>
+                            </div>
+                            <h2>Skills</h2>
+                            <div class="double">
+                                <div class="half">
+                                    <label for="first"></label>
+                                    <input type="text" id="first" placeholder="Specify strong technical skills of yours" name="skills">
+                                </div>
+                            </div>
+                            <h2>Languages</h2>
+                            <div class="double">
+                                <div class="half">
+                                    <label for="first"></label>
+                                    <input type="text" id="first" placeholder="Mention the languages you know" name="languages">
+                                </div>
+                            </div>
+                            <h2>Achievements and Honors</h2>
+                            <div>
+                                <textarea placeholder="Your proud achievements and honors must go here" id='textarea' name='achievements'></textarea>
+                            </div>
+
+
+
+
+                           <!--<div class="double">
+                                <div class="half">
+                                    <label for="first">This is half size form. one in a row</label>
+                                    <input type="text" id="first" placeholder="This is half size form" name="">
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="double">
+                                <div class="half">
+                                    <label for="first">This is half size form. two in a row</label>
+                                    <input type="text" id="first" placeholder="This is half size form" name="">
+                                </div>
+                                <div class="half">
+                                    <label for="first">This is half size form. two in a row</label>
+                                    <input type="text" id="first" placeholder="This is half size form" name="">
+                                </div>
+                            </div>
+
+
+
+                            <label>Label</label>
+                            <input type='text' placeholder="Default, full-width field">
+
+
+
+
+                            <select>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+
+
+
+
+                            <div class="double">
+                                <div class="half">
+                                    <select>
+                                        <option value="1">Option 1</option>
+                                        <option value="2">Option 2</option>
+                                        <option value="3">Option 3</option>
+                                      </select>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="double">
+                                <p class="half">
+                                  <input name="radiovalue" type="radio" id="radio1" />
+                                  <label for="radio1">Radio option 1</label>
+                                </p>
+                                <p class="half">
+                                  <input name="radiovalue" type="radio" id="radio2" />
+                                  <label for="radio2">Radio option 2</label>
+                                </p>
+                              </div>
+
+
+
+
+                              <p class="row">
+                                <input type="checkbox" id="check" />
+                                <label for="check">This is a standard checkbox</label>
+                                <input type="checkbox" id="check" />
+                                <label for="check">This is a standard checkbox</label>
+                                <input type="checkbox" id="check" />
+                                <label for="check">This is a standard checkbox</label>
+                              </p>
+
+                              <p class="row">
+                                <input type="checkbox" id="check" />
+                                <label for="check">This is a standard checkbox</label>
+                                <input type="checkbox" id="check" />
+                                <label for="check">This is a standard checkbox</label>
+                                <input type="checkbox" id="check" />
+                                <label for="check">This is a standard checkbox</label>
+                              </p>
+                              -->
+
+
+
+
+                            <div class="double">
+                                <button type="submit" class="button button__primary" name='submit'>Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src='js/app.min.js'></script>
+</body>
+
+</html>
