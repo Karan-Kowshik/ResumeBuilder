@@ -16,20 +16,19 @@
         $mobile=$_POST['mobile'];
 
         $address1=$_POST['address1'];
-        $about=$_POST['about'];
-        $high_school=$_POST['high_school'];
+        $objectives=$_POST['objectives'];
         $uni_ug=$_POST['uni_ug'];
         $uni_pg=$_POST['uni_pg'];
         $interns=$_POST['interns'];
         $projects=$_POST['projects'];
+        $work_exp=$_POST['work_exp'];
         $skills=$_POST['skills'];
         $languages=$_POST['languages'];
         $achievements=$_POST['achievements'];
-        $hobbies=$_POST['hobbies'];
-        
+
         if(isset($_POST['email']) && !empty($email))
         {
-            $query = "SELECT email from user where email='$email'";
+            $query = "SELECT email from user where email='$email' ";
             $result = mysqli_query($conn,$query);
             if(mysqli_num_rows($result)>=1)
             {
@@ -44,18 +43,18 @@
                             $uniqueid = $row2["user_id"];
                             $q2 = "Update user set fname='$fname',lname='$lname',mobile='$mobile' where user_id='$uniqueid'  ";
                             $r2 = mysqli_query($conn,$q2);
-                            $q3 = "Update info set address1 = '$address1', about='$about', high_school='$high_school', uni_ug='$uni_ug', uni_pg='$uni_pg', interns='$interns', projects='$projects', skills='$skills',languages='$languages', achievements='$achievements', hobbies='$hobbies' where u_id='$uniqueid' ";
+                            $q3 = "Update info set address1 = '$address1', objectives='$objectives', uni_ug='$uni_ug', uni_pg='$uni_pg', interns='$interns', projects='$projects', work_exp='$work_exp', skills='$skills',languages='$languages', achievements='$achievements' where u_id='$uniqueid' ";
                             $r3 = mysqli_query($conn,$q3);
                             $_SESSION["userid"]=$uniqueid;
 
                         }
                     }
                 }
-            }   
+            }
             if(mysqli_num_rows($result)==0)
-            {    
+            {
                 $query2 = "INSERT into user(user_id,fname,lname,email,mobile) values (UUID(),'$fname','$lname','$email','$mobile')";
-                $result2 = mysqli_query($conn,$query2);
+                $result2 = mysqli_query($conn,$query2);   
 
                 //fetch the uuid corresponding to the email-id
                 $query3 = "SELECT user_id FROM user where email='$email' ";
@@ -66,10 +65,11 @@
                     while($row = mysqli_fetch_assoc($result3)) 
                     {
                         $uniqueid = $row["user_id"];
+                        echo $row["user_id"];
                         //echo "user id is: " . $row["user_id"]. "<br>". $uniqueid;
 
                         //populating table
-                        $query4 = "INSERT into info(address1,about,high_school,uni_ug,uni_pg,interns,projects,skills,languages,achievements,hobbies,u_id) values ('$address1','$about','$high_school','$uni_ug','$uni_pg','$interns','$projects','$skills','$languages','$achievements','$hobbies','$uniqueid')";
+                        $query4 = "INSERT into info(address1,objectives,uni_ug,uni_pg,interns,projects,work_exp,skills,languages,achievements,u_id) values ('$address1','$objectives','$uni_ug','$uni_pg','$interns','$projects','$work_exp','$skills','$languages','$achievements','$uniqueid')";
                         $result4 = mysqli_query($conn,$query4);
                         $_SESSION["userid"]=$uniqueid;
                     }
@@ -81,12 +81,12 @@
             }
         }
     }
-    else
-    {
-        echo "Not inserted in to db(not clicked submit in form page -- student.html)";
+    else{
+         echo "Not inserted in to db(not clicked submit in form page -- student.html)";
     }
 ?>
  
+
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -141,7 +141,7 @@
                 <div class="page__main">
                     <div class="container">
                         <h4>Your Unique ID is: <?php echo $uniqueid; ?> <span name="uid"></span></h4>
-                        <a href="studentresume.php" class="button button__accent" style="margin-top: 150px;">View Resume</a>
+                        <a href="professionalresume.php" class="button button__accent" style="margin-top: 150px;">View Resume</a>
                     </div>
                 </div>
             </div>
@@ -149,4 +149,5 @@
     </div>
     <script src='js/app.min.js'></script>
 </body>
+
 </html>
