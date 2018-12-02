@@ -148,5 +148,12 @@
         </div>
     </div>
     <script src='js/app.min.js'></script>
+    <script>
+    history.pushstate(null, null, location.href);
+    window.onpopstate function()
+    {
+        history.go(1);
+    };
+    </script>
 </body>
 </html>
