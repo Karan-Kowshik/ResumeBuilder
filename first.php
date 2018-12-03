@@ -15,7 +15,7 @@
         $email=$_POST['email'];
         $mobile=$_POST['mobile'];
 
-        $address1=$_POST['address1'];
+        //$address1=$_POST['address1'];
         $uni_ug=$_POST['uni_ug'];
         $uni_pg=$_POST['uni_pg'];
         $interns=$_POST['interns'];
@@ -27,6 +27,7 @@
         if(isset($_POST['high_school'])) //for student
         {
             $about=$_POST['about'];
+            $address1=$_POST['address1'];
             $high_school=$_POST['high_school'];
             $hobbies=$_POST['hobbies'];
             if(isset($_POST['email']) && !empty($email))
@@ -56,35 +57,41 @@
                 }   
                 if(mysqli_num_rows($result)==0)
                 {    
-                    $query2 = "INSERT into user(user_id,fname,lname,email,mobile) values (UUID(),'$fname','$lname','$email','$mobile')";
-                    $result2 = mysqli_query($conn,$query2);
+                    //while($row1=mysqli_fetch_assoc($result))
+                    //{
+                        $query2 = "INSERT into user(user_id,fname,lname,email,mobile) values (UUID(),'$fname','$lname','$email','$mobile')";
+                        $result2 = mysqli_query($conn,$query2);
 
-                    //fetch the uuid corresponding to the email-id
-                    $query3 = "SELECT user_id FROM user where email='$email' ";
-                    $result3 = mysqli_query($conn,$query3);
-                    if (mysqli_num_rows($result3) == 1 ) 
-                    {
-                        // output data of each row
-                        while($row = mysqli_fetch_assoc($result3)) 
+                        //fetch the uuid corresponding to the email-id
+                        $query3 = "SELECT user_id FROM user where email='$email' ";
+                        $result3 = mysqli_query($conn,$query3);
+                        if (mysqli_num_rows($result3) == 1 ) 
                         {
-                            $uniqueid = $row["user_id"];
-                            //echo "user id is: " . $row["user_id"]. "<br>". $uniqueid;
+                            // output data of each row
+                            while($row = mysqli_fetch_assoc($result3)) 
+                            {
+                                $uniqueid = $row["user_id"];
+                                //echo "user id is: " . $row["user_id"]. "<br>". $uniqueid;
 
-                            //populating table
-                            $query4 = "INSERT into info(address1,about,high_school,uni_ug,uni_pg,interns,projects,skills,languages,achievements,hobbies,u_id) values ('$address1','$about','$high_school','$uni_ug','$uni_pg','$interns','$projects','$skills','$languages','$achievements','$hobbies','$uniqueid')";
-                            $result4 = mysqli_query($conn,$query4);
-                            $_SESSION["userid"]=$uniqueid;
+                                //populating table
+                               // $query6 = "INSERT into info(address1, about, high_school,u_id) values ('$address1','$about','$high_school','$uniqueid')";
+                                $query6 = "INSERT into info(address1, about, high_school, uni_ug, uni_pg, interns, projects, skills, languages, achievements, hobbies, u_id) values('$address1','$about','$high_school','$uni_ug','$uni_pg','$interns','$projects','$skills','$languages','$achievements','$hobbies','$uniqueid') ";
+                                $result6 = mysqli_query($conn,$query6);
+                                //echo "<br>".$email;
+                                $_SESSION["userid"]=$uniqueid;
+                            }
+                        } 
+                        else 
+                        {
+                            echo "more than 1";
                         }
-                    } 
-                    else 
-                    {
-                        echo "more than 1";
-                    }
+                   // }
                 }
             }
         }
         if( ( isset($_POST['work_exp'])) && ( isset($_POST['objectives'] ) ) )//for professional
         {
+            $address1=$_POST['address1'];
             $work_exp=$_POST['work_exp'];
             $objectives=$_POST['objectives'];
             if(isset($_POST['email']) && !empty($email))
@@ -95,7 +102,7 @@
                 {
                     while($row1=mysqli_fetch_assoc($result))
                     {
-                        $q = "select user_id from user where email='$email' ";
+                        $q = "SELECT user_id from user where email='$email' ";
                         $r = mysqli_query($conn,$q);
                         if(mysqli_num_rows($r)>=1)
                         {
@@ -104,7 +111,8 @@
                                 $uniqueid = $row2["user_id"];
                                 $q2 = "Update user set fname='$fname',lname='$lname',mobile='$mobile' where user_id='$uniqueid'  ";
                                 $r2 = mysqli_query($conn,$q2);
-                                $q3 = "Update info set address1 = '$address1', objectives='$objectives', uni_ug='$uni_ug', uni_pg='$uni_pg', interns='$interns', projects='$projects', work_exp='$work_exp', skills='$skills',languages='$languages', achievements='$achievements' where u_id='$uniqueid' ";
+                            //    $q3 = "Update info set address1 = '$address1', objectives='$objectives', uni_ug='$uni_ug', uni_pg='$uni_pg', interns='$interns', projects='$projects', work_exp='$work_exp', skills='$skills',languages='$languages', achievements='$achievements' where u_id='$uniqueid' ";
+                                $q3 = "UPDATE info set address1='$address1', objectives='$objectives', uni_ug='$uni_ug', uni_pg='$uni_pg', interns='$interns', projects='$projects', work_exp='$work_exp', skills='$skills', languages='$languages', achievements='$achievements' where u_id='$uniqueid' ";
                                 $r3 = mysqli_query($conn,$q3);
                                 $_SESSION["userid"]=$uniqueid;
 
@@ -114,6 +122,7 @@
                 }
                 if(mysqli_num_rows($result)==0)
                 {
+                    $address1=$_POST['address1'];
                     $query2 = "INSERT into user(user_id,fname,lname,email,mobile) values (UUID(),'$fname','$lname','$email','$mobile')";
                     $result2 = mysqli_query($conn,$query2);   
 
@@ -126,12 +135,13 @@
                         while($row = mysqli_fetch_assoc($result3)) 
                         {
                             $uniqueid = $row["user_id"];
-                            echo $row["user_id"];
+                            //echo $row["user_id"];
                             //echo "user id is: " . $row["user_id"]. "<br>". $uniqueid;
 
                             //populating table
-                            $query4 = "INSERT into info(address1,objectives,uni_ug,uni_pg,interns,projects,work_exp,skills,languages,achievements,u_id) values ('$address1','$objectives','$uni_ug','$uni_pg','$interns','$projects','$work_exp','$skills','$languages','$achievements','$uniqueid')";
-                            $result4 = mysqli_query($conn,$query4);
+                            //$query4 = "INSERT into info(address1, objectives, uni_ug, interns, projects, work_exp, skills, languages, achievements, u_id) values ('$address1','$objectives','$uni_ug','$uni_pg', '$interns', '$projects','$work_exp','$skills','$languages','$achievements','$uniqueid')";
+                            $query4 = "INSERT into info(address1, objectives, uni_ug, uni_pg, interns, projects, work_exp, skills, languages, achievements, u_id) values('$address1','$objectives','$uni_ug','$uni_pg', '$interns', '$projects', '$work_exp', '$skills', '$languages', '$achievements', '$uniqueid')";
+                            $result4=mysqli_query($conn,$query4);
                             $_SESSION["userid"]=$uniqueid;
                         }
                     } 

@@ -23,6 +23,9 @@
                 $_SESSION['userid']=$uniqueid;
             }
         }
+        else {
+            echo "wrong unique id";
+        }
     }
 ?>
 
